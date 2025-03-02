@@ -1,0 +1,36 @@
+program AssignmentProgram;
+const x = 5;
+var a, b : integer;
+begin
+  a := x;
+  b := a * 2;
+end.
+
+program MyProgram;
+const x = 10;
+var z: integer;
+begin
+  z := x ;
+  x:=z;
+end.
+
+program IfElseExample;
+const x = 10;
+var a : integer;
+begin
+  a := x;
+  if a > 5 then
+    a := a + 1;
+  else
+    a := a - 1;
+  endif
+end.
+
+program RepeatExample;
+var i : integer;
+begin
+  i := 0;
+  Repeter
+    i := i + 1;
+  Jusqua i = 5;
+end.

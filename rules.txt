@@ -1,0 +1,40 @@
+<p> : exprime un non-terminal.
+p : exprime un terminal.
+L’axiome de la grammaire est : <ProgrammeProgSI2025>
+<ProgrammeProgSI2025>::= program <NomProg> ; <Corps> .
+<NomProg> ::=<Lettre><NomProg>/<Lettre>
+<Corps>::=<PartieDéfinitionConstante><PartieDéfinitionVariable> <InstrComp>/<InstrComp>
+<PartieDéfinitionConstante>::=const <DéfinitionConstante> ; /<vide>
+<PartieDéfinitionVariable>::= var <DéfinitionVariables> ;/<vide>
+<DéfinitionConstante>::=<Identificateur>=<ValeurNumérique>/<Identificateur>=<ValeurNumérique> ;<DéfinitionConstante>/<Identificateur>=<ConstanteChaine>/ <Identificateur>=<ConstanteChaine> ;<DéfinitionConstante>
+<DéfinitionVariables> ::=<DéfinitionVariable> ;<DéfinitionVariables> /<DéfinitionVariable>
+<DéfinitionVariable> ::=<GroupeVariable> :<IdentificateurType>
+<GroupeVariable> ::=<Identificateur>,<GroupeVariable> / <Identificateur>
+<Identificateur> ::= <Lettre><SuitedeSymboles>
+<SuitedeSymboles> ::=<Symbole><SuitedeSymboles> / <vide>
+<Symbole> ::=<Lettre>/ <Chiffre>/_
+<ValeurNumérique> ::=<ConstanteEntière>/<ConstanteRéelle>
+<ConstanteEntière> ::=<Chiffre><ConstanteEntière> /<Chiffre>
+<ConstanteRéelle>::=<ConstanteEntière><Exposant>/<ConstanteEntière>.<ConstanteEntière><
+Exposant>
+<Exposant> ::=E+<ConstanteEntière>/ E-<ConstanteEntière>
+<ConstanteChaine> ::=’<SuitedeCaractère>’
+<SuitedeCaractère> ::=<Caractère><SuitedeCaractère>/<vide>
+<Caractère> ::=<Lettre>/<Chiffre>/@/$/............
+<Lettre> ::= ‘’A’’/ ‘’B’’/../ ‘’Z’’/’’a’’/../’’z’’
+<Chiffre> ::=0/1/../9
+<IdentificateurType> ::=integer /reel/char/string/<enregistrement>
+<enregistrement> ::= Record<DéfinitionVariables>end
+<InstrComp> ::= begin<Instructions> end
+<Instructions> ::=<Instruction> ;<Instructions>/<Instruction> ;
+<Instruction> ::=<InstructionAffectation>/<InstructionIf>/<Instruction Répéter>/<Vide>
+<InstructionAffectation> ::=<Identificateur> :=<Expression>
+<Expression> ::=<Expression><OperateurArithmétique><Expression>/(<Expression>)/
+<Identificateur>/<ValeurNumérique>
+<OperateurArithmétique> ::= + / * / -
+<InstructionIf> ::=if<Condition>then<Instructions> <InstructionConditionnelle>
+<InstructionConditionnelle> ::=endif/else <Instructions>endif
+<InstructionRépéter> ::=Répéter<Instructions> Jusqu’à<Condition>
+<Condition> ::=<Expression><OperateurLogique><Expression>/(<Condition>)
+<OperateurLogique> ::=>/ >= / < / <= /= /<>
+<Vide> ::= ‘’
